@@ -1,113 +1,65 @@
-// $ ←これがjQueryになります！🤗
-// ボタンを押すとAさんとBさんのジャンケンが作られる
-
-$("#change").on("click", function () {
-    console.log("定義をする");
-
-    var a_num = Math.floor(Math.random() * 4);
-    console.log(a_num, "a_numにて表情を指定");
-
-    var b_num = Math.floor(Math.random() * 4);
-    console.log(b_num, "b_numにて服装を指定");
-
-    console.log(a_num, "a_numを表情の名前に上書きする");
-    if (a_num === 0) {
-        var a_num = "ニコニコしてる";//値を代入
-        $('#face_p').html(a_num);
-        $('#face_randomShow').attr('src', "img/rabbit_face_cute.PNG");
-    } else if (a_num === 1) {
-        var a_num = "ビックリしてる";//値を代入
-        $('#face_p').html(a_num);
-        $('#face_randomShow').attr('src', "img/rabbit_face_surprise.PNG");
-    } else if (a_num === 2) {
-        var a_num = "悲しんでいる";//値を代入
-        $('#face_p').html(a_num);
-        $('#face_randomShow').attr('src', "img/rabbit_face_sad.PNG");
-    } else if (a_num === 3) {
-        var a_num = "怒っている";//値を代入
-        $('#face_p').html(a_num);
-        $('#face_randomShow').attr('src', "img/rabbit_face_angry.PNG");
+function date() {
+    const date = new Date();
+    const hours = date.getHours();
+    const minutes = date.getMinutes();
+    const seconds = date.getSeconds();
+    // hour 時間　minute 分 second 秒 
+    const time = {hour: hours, minute: minutes, second: seconds}
+    document.getElementById("time").innerHTML = date.toLocaleTimeString();
+    return time
+}
+// アラーム
+function alerm(){
+        console.log(`現在の時刻は${date().hour}時${date().minute}分${date().minute}秒になります。`)
+        // 設定したい時刻を入力する
+        var alerm_hour = 23 // 時
+        var alerm_minute = 50 //分
+        if(date().second == alerm_hour && date().minute == alerm_minute){
+            document.getElementById("alerm_text").innerHTML = "時間になりました。"
+            console.log(`現在の時刻が${alerm_hour}時${alerm_minute}分になりました。`)
+            // 30秒後にend_alermが呼び出される
+            setTimeout(end_alerm,30000)
+        }
     }
-    // 洋服を決める
-    console.log(b_num, "b_numを洋服の名前に上書きする");
-    if (b_num === 0) {
-        var b_num = "サラリーマン";//値を代入
-        $('#clothes_p').html(b_num);
-        $('#clothes_randomShow').attr('src', "img/rabbit_suit.PNG");
-    } else if (b_num === 1) {
-        var b_num = "お兄さん";//値を代入
-        $('#clothes_p').html(b_num);
-        $('#clothes_randomShow').attr('src', "img/rabbit_tshirs.PNG");
-    } else if (b_num === 2) {
-        var b_num = "コックさん";//値を代入
-        $('#clothes_p').html(b_num);
-        $('#clothes_randomShow').attr('src', "img/rabbit_cock.PNG");
-    } else if (b_num === 3) {
-        var b_num = "ヤンキー";//値を代入
-        $('#clothes_p').html(b_num);
-        $('#clothes_randomShow').attr('src', "img/rabbit_y.PNG");
-    };
+    // アラームでhtml「時間になりました。」を非表示にする
+    function end_alerm() {
+        console.log("1分経ったので表示が消えます。")
+        document.getElementById("alerm_text").innerHTML = ""
+    }
+    // 30%のセールと50%のセールを呼び出す
+    function sale() {
+        setInterval(sale30,1000);
+        setInterval(sale50,1000);
+    }
 
-    console.log("励ましコメント");
-    if (a_num === "怒っている" && b_num === "ヤンキー" || a_num === "怒っている" && b_num === "サラリーマン" || a_num === "怒っている" && b_num === "コックさん") {
-        console.log("ストレス溜め込みすぎないようにね。");
-        $('#imp2').html("＼ストレス溜め込みすぎないようにね。／");
-        $("#imp2").css("color", "#878719");
-        $("#imp2").css("font-size", "1.2em");
-    } else if (a_num === "悲しんでいる") {
-        console.log("どう思う？");
-        $('#imp2').html("＼元気出してね。／");
-        $("#imp2").css("color", "#878719");
-        $("#imp2").css("font-size", "1.2em");
-    } else if (a_num === "怒っている" && b_num === "お兄さん") {
-        console.log("マイルドヤンキー出没");
-        $('#imp2').html("／マイルドヤンキーだぞ！＼");
-        $("#imp2").css("color", "red");
-        $("#imp2").css("font-size", "2em");
-        $('.popup').addClass('show').fadeIn();
-        // この下は消さない🤗
-    } else {
-        console.log("何もしない");
-        $('#imp2').html("");
-    };
-});
+    // 30%引き
+    function sale30() {
+        var sale_hour = 15 // 時
+        var sale_minute = 0 //分
+        if(date().second == sale_hour && date().minute == sale_minute){
+            document.getElementById("sale_text").innerHTML = "特売になります！！！！！！！"
+            document.getElementById("sale").innerHTML = "30%引き"
+        }
+    }
 
-$("#reset").on("click", function () {
-    console.log("最初の状態に戻す");
-    $('#face_randomShow').attr('src', "img/rabbit_face.PNG");
-    $('#clothes_randomShow').attr('src', "img/rabbit.PNG");
-    $('#face_p').html("どんな");
-    $('#clothes_p').html("うさぎさん？");
-    $('#imp2').html("");
-});
+    // 50%引き
+    function sale50() {
+        var sale_hour = 19 // 時
+        var sale_minute = 0 //分
+        if(date().second == sale_hour && date().minute == sale_minute){
+            document.getElementById("sale_text").innerHTML = "特売になります！！！！！！！"
+            document.getElementById("sale").innerHTML = "50%引き"
+            setTimeout(end_sale,30000)
+        }
+    }
 
-// if (a_num === "怒っている" && b_num === "お兄さん") {
-//     console.log(a_num,定義が入っているかの確認);
-// };
-
-// ↓ここから修正
-$('#close').on('click', function () {
-    console.log("マイルドヤンキー出没時のポップアップ");
-    $('.popup').fadeOut();
-    // $('#reset').on('click');
-});
-
-
-
-//  } else if (a_san === "グー" && b_san === "グー" || a_san === "チョキ" && b_san === "チョキ" || a_san === "パー" && b_san === "パー") {
-//     console.log("あいこ");
-//     $('#hantei').html("あいこだよ。もう一度遊んでね。");
-
-
-// $(document).ready(function () {
-//     $("#screenshot-btn").click(function () {
-//         html2canvas(document.getElementById("target-table")).then(function (canvas) {
-//             var imgData = canvas.toDataURL("image/png");
-//             var link = document.createElement(\'a\');
-// 					link.href = imgData;
-//             link.download = \'table-screenshot.png\';
-//             link.click();
-//         });
-//     });
-// });
-
+    // セールの表示を終了する
+    function end_sale(){
+        console.log("表示が消えます。")
+        document.getElementById("sale_text").innerHTML = ""
+        document.getElementById("sale").innerHTML = ""
+    }
+    // 1秒ごとに呼び出される
+    setInterval(date,1000);
+    setInterval(alerm,1000);
+    setInterval(sale,1000);
