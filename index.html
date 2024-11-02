@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Document</title>
+</head>
+<header class="header">
+    <h1>うさぎさんを着せ替えしよう</h1>
+</header>
+
+<body>
+    <div class="contents">
+        <div class="yoso">
+        </div>
+        <div class="kigae">
+            <!-- <img src=“https://fukidashi.illust.download/wp-content/uploads/2022/02/fukidashi01_54_E2TJS-300x250.jpg” id=“image_file”></div> -->
+            <div class="rabit">
+                <img src="img/rabbit.PNG" alt="サンプル" class="rabit_img">
+            </div>
+            <div class="face">
+                <img src="img/rabbit_face.PNG" alt="サンプル" id="face_randomShow">
+            </div>
+            <div class="clothes">
+                <img src="img/rabbit.PNG" alt="サンプル" id="clothes_randomShow">
+            </div>
+        </div>
+
+        <h2 class="text">ボタンを押してね</h2>
+        <div class="btn">
+            <button class="btn-kigae" id="change">お着替えしよう</button>
+            <button class="btn-kigae" id="reset">リセットする</button>
+        </div>
+
+        <div class="impression">
+            <h2 id="impression_p" class="text">どんなうさぎさんになるかな</h2>
+            <!-- 後で可愛いなどcoolなどを入れる -->
+            <div class="text_imp">
+                <p>『</p>
+                <p id="face_p">どんな</p>
+                <p id="clothes_p">うさぎさん？</p>
+                <p>』</p>
+            </div>
+        </div>
+
+        <div class="impression2">
+            <p id="imp2"></p>
+        </div>
+
+        <!-- <button class="btn-kigae" id="pop">モーダル表示</button> -->
+        <div class="popup">
+            <div class="content">
+                <p>怒られちゃったね。</p>
+                <button id="close">逃げる</button>
+            </div>
+        </div>
+
+        <!-- <button>画像切替</button>
+        <a id="download-btn" href="./img/mainbg.png">ダウンロード</a> -->
+
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="js/jquery.js"></script>
+</body>
+
+</html>

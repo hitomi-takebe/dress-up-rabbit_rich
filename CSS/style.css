@@ -1,0 +1,244 @@
+@charset "utf-8";
+
+/* ヘッダーを中央寄せ */
+.header {
+    position: relative;
+    text-align: center;
+    margin: 0 auto;
+    width: 100%;
+    background: #F9F9E0;
+}
+
+.header h1 {
+    display: inline-block;
+    position: relative;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+    padding: 7px 0;
+    font-size: 18px;
+    background: #FF9EAA;
+    color: #FFF;
+    box-sizing: border-box;
+}
+
+.header h1 {
+    margin: 0;
+    padding: 0 30px;
+    border-top: dashed 2px rgba(255, 255, 255, 0.5);
+    border-bottom: dashed 2px rgba(255, 255, 255, 0.5);
+    line-height: 42px;
+}
+
+.contents {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.title {
+    font-size: 1.5em;
+}
+
+/* .header h1:before,
+.header h1:after {
+    position: absolute;
+    content: '';
+    width: 0px;
+    height: 0px;
+    z-index: 1;
+}
+
+.header h1:before {
+    /*左の山形*/
+/* top: 0;
+    left: 0;
+    border-width: 30px 0px 30px 15px;
+    border-color: transparent transparent transparent #F9F9E0;
+    border-style: solid;
+    
+} */
+
+.header h1:after {
+    /*右の山形*/
+    top: 0;
+    right: 0;
+    border-width: 30px 15px 30px 0px;
+    border-color: transparent #F9F9E0 transparent transparent;
+    border-style: solid;
+}
+
+
+.contents {
+    text-align: center;
+    margin: 0 auto;
+    width: 100%;
+    background-color: #F9F9E0;
+}
+
+
+.kigae {
+    height: 500px;
+    width: 500px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.rabit {
+    position: relative;
+    margin: 0 auto;
+
+}
+
+.rabit img {
+    height: 500px;
+    width: 500px;
+    object-fit: cover;
+}
+
+.face {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    /*ベンダープレフィックス*/
+    -webkit-transform: translate(-50%, -50%);
+    /*ベンダープレフィックス*/
+    transform: translate(-50%, -50%);
+    /*センター寄せの修正*/
+}
+
+#face_randomShow {
+    height: 500px;
+    width: 500px;
+    object-fit: cover;
+}
+
+.clothes {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    /*ベンダープレフィックス*/
+    -webkit-transform: translate(-50%, -50%);
+    /*ベンダープレフィックス*/
+    transform: translate(-50%, -50%);
+    /*センター寄せの修正*/
+}
+
+#clothes_randomShow {
+    height: 500px;
+    width: 500px;
+    object-fit: cover;
+}
+
+.btn {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.btn-kigae {
+    display: block;
+    text-align: center;
+    /* vertical-align:middle; */
+    text-decoration: none;
+    position: relative;
+    width: 250px;
+    margin-left: 60px;
+    margin-right: 60px;
+    padding: 1rem 4rem;
+    font-weight: bold;
+    border-radius: 0.3rem;
+    background-color: #e9f6fb;
+    border-image-source: repeating-linear-gradient(45deg, #27acd9 0, #27acd9 6px, rgba(0, 0, 0, 0) 6px, rgba(0, 0, 0, 0) 8px);
+    border-image-slice: 4;
+    border-width: 4px;
+    border-image-repeat: round;
+    border-style: solid;
+    color: #27acd9;
+}
+
+.btn-kigae:hover {
+    border: 4px solid #3AA6B9;
+    color: #3AA6B9;
+}
+
+.btn-kigae:hover::before {
+    top: 0;
+    left: 0;
+}
+
+.btn-kigae:hover::after {
+    top: 0;
+    left: 0;
+}
+
+.impression {
+    text-align: center;
+    padding: 7px 0;
+    /* background: #ffffb9; */
+    /* border-style: dashed 2px #FF9EAA(255, 255, 255, 0.5); */
+}
+
+.text {
+    font-size: 1.2em;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    color: #71714c;
+}
+
+.text_imp {
+    display: flex;
+    justify-content: center;
+}
+
+.text_imp p {
+    font-size: 1.5em;
+    line-height: 1.5;
+    color: #878719;
+}
+
+#face_p {
+    margin-right: 10px;
+}
+
+#face_p,
+#clothes_p {
+    text-decoration: underline;
+    /* 下線 */
+    text-decoration-thickness: 0.5em;
+    /* 線の太さ */
+    text-decoration-color: rgba(255, 228, 0, 0.4);
+    /* 線の色 */
+    text-underline-offset: -0.2em;
+    /* 線の位置。テキストに重なるようにやや上部にする */
+    text-decoration-skip-ink: none;
+    /* 下線と文字列が重なる部分でも下線が省略されない（線が途切れない） */
+}
+
+.impression2 {
+    padding-bottom: 100px;
+}
+
+.popup {
+    display: none;
+    height: 100vh;
+    width: 100%;
+    background: black;
+    opacity: 0.7;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.content {
+    background: #fff;
+    padding: 30px;
+    width: 50%;
+}
+
+.show {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
