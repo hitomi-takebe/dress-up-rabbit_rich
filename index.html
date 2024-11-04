@@ -1,5 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <head>
     <meta charset="UTF-8">
@@ -11,37 +14,35 @@
 
 <header class="header">
 </header>
-
 <body>
     <h2>現在時刻</h2>
     <h2 id="time"></h2>
-    <h2 id="alerm_text"></h2>
 
     <h1>集合時間はいつ？</h1>
     <input type="time" id="mtg_time">
-
-    <h1>準備に何分かかる？</h1>
-    <input type="text" placeholder="分" id="pre_hours">
-    <input type="text" placeholder="分" id="pre_mins">
+    <h1>準備・移動に何分かかる？</h1>
+    <input type="number" placeholder="時間" id="pre_hours" min="0" max="23"><span>時間</span>
+    <input type="number" placeholder="分" id="pre_mins" min="0" max="59"><span>分</span>
     <input type="button" id="button1" value="ボタン">
-    
+
     <h1>入力した値</h1>
     <p>集合時間：<span id="span1"></span></p>
-    <p>準備時間：<span id="span2"></span>時間<span id="span3"></span>分</h1>
+    <p>準備時間：<span id="span2"></span>時間<span id="span3"></span>分</p>
 
-    
-    
-    
+    <h1>準備開始時間はいつ？</h1>
+    <p><span id="start_time""></span><p>
+
     <h2 id="sale_text"></h2>
     <h2 id="sale"></h2>
 
-    <p>取得した値 <span id="span1"></span><span id="span2"></span></p>
+    <h1>カウントダウン（あと何分？）</h1>
+    <p><span id="countdown""></span><p>
+    <h2 id="alerm_text"></h2>
 
-    <input type="button" id="button1" value="ボタン">
-
-    </div>
+    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="js/jquery.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-datetimepicker@2.5.20/build/jquery.datetimepicker.full.min.js"></script>
 </body>
 
 </html>
