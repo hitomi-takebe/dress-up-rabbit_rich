@@ -113,6 +113,7 @@ function endSale() {
 }
 
 // 1秒ごとに各機能を実行
+////ここを後で表示させる
 // setInterval(updateTime, 1000); // 現在時刻の更新
 // setInterval(alerm, 1000);      // アラームのチェック
 // setInterval(sale, 1000);       // セールのチェック
