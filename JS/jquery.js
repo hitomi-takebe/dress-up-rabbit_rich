@@ -52,13 +52,14 @@ $("#button1").click(function () {
     $('#start_time').text(PlusTimeFormatted);
 });
     
-    // この形式に変更できる→HTMLのid="time"の要素に現在時刻を表示
+    // //この形式に変更できる→HTMLのid="time"の要素に現在時刻を表示
     //$("#time").text(date.toLocaleTimeString());
     
     
 
 // functionを外出しする
 // 出る時間になったことをお知らせ
+////下がdateかも？またはcurrentTimeで作っているhoursのみで良さそう。
 const current = currentTime(); 
 
 if (current.hour === PlusTime.getHours() && current.minutes === PlusTime.getMinutes() ) {
