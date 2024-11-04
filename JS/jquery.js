@@ -12,28 +12,51 @@ function updateTime() {
     return { hour: hours, minute: minutes, second: seconds };
 }
 
+// 集合時間の取得
+$(function () {
+    $("#daytime").datetimepicker();
+});
+
+// $('#mtg_time').datetimepicker({
+//   format: 'YYYY-MM-DD',
+//   language: 'ja'
+// }).on('dp.error', function(e) {
+//   $(e.target).val('');
+// });
+
 
 // 入力情報の取得と表示
 $("#button1").click(function () {
     // テキストボックスのvalue値を取得
-    const time2 = $("#mtg_time").val();
+    const MtgTime = $("#daytime").val();
     const hours2 = $("#pre_hours").val();
     const minutes2 = $("#pre_mins").val();  
     // spanタグに値を設定
-    $("#span1").text(time2);
+    $("#span1").text(MtgTime);
     $("#span2").text(hours2);
     $("#span3").text(minutes2);      
 
-    console.log("準備・移動の時間をpreに取得");
+    console.log("準備・移動の時間をdiffに取得");
     // diffに準備・移動時間の分数を入力
     let diff = hours2 * (60 * 60 * 1000) + minutes2 * (60 * 1000);
-    console.log(Math.abs(pre) / (60 * 1000),"diffに準備・移動に必要な分数を記録しています。");
-    console.log(time2.getTime())
+    console.log(diff);
+    // 文字列からDateオブジェクトに変換
+    const MtgTime_new = new Date(MtgTime);
+    // diffの時間を追加
+    const PlusTime = new Date(MtgTime_new.getTime() + diff);
+
+    // 時刻をローカルフォーマットで表示（例: "15:00:00"）
+    const PlusTimeFormatted = PlusTime.toLocaleTimeString();
+
+    // 結果を表示
+    $('#start_time').text(PlusTimeFormatted);
 
     // let pre = time2.getTime() - diff.getTime();
-    // console.log(`準備に必要な時間は${pre().hour}時${pre().minute}分になります。`)
+    console.log(`準備に必要な時間は${mtg_time().hour}時${mtg_time().minute}分になります。`)
     // console.log(`現在の時刻は${date().hour}時${date().minute}分${date().minute}秒になります。`)
-    });
+});
+    
+
     
 
 // if (currentTime.hour === alerm_hour && currentTime.minute === alerm_minute) {
