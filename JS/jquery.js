@@ -1,3 +1,4 @@
+console.log("開始");
 // 現在時刻を表示する関数
 function updateTime() {
     const date = new Date();
@@ -6,9 +7,10 @@ function updateTime() {
     const seconds = date.getSeconds();
 
     // HTMLのid="time"の要素に現在時刻を表示
+    console.log("timeの要素に現在時刻を表示");
     $("#time").text(date.toLocaleTimeString());
-
     // 時間データをオブジェクトとして返す
+    console.log("時間データをオブジェクトとして返す");
     return { hour: hours, minute: minutes, second: seconds };
 }
 
@@ -16,22 +18,24 @@ function updateTime() {
 function alerm() {
     const currentTime = updateTime();
     console.log(`現在の時刻は${currentTime.hour}時${currentTime.minute}分${currentTime.second}秒になります。`);
-
+}
     // アラームを設定したい時間
 
 $("#button1").click(function () {
-    const hours2 = $("#text1").val();
-    const minutes2 = $("#text2").val();      // テキストボックスのvalue値を取得
-    $("#span1").text(hours2);
-    $("#span2").text(minutes2);      // spanタグに値を設定
+    const time2 = $("#mtg_time").val();
+    const hours2 = $("#pre_hours").val();
+    const minutes2 = $("#pre_mins").val();      // テキストボックスのvalue値を取得
+    $("#span1").text(time2);
+    $("#span2").text(hours2);
+    $("#span3").text(minutes2);      // spanタグに値を設定
     });
 
-    if (currentTime.hour === alerm_hour && currentTime.minute === alerm_minute) {
-        $("#alerm_text").text("時間になりました。");
-        console.log(`現在の時刻が${alerm_hour}時${alerm_minute}分になりました。`);
-        setTimeout(endAlerm, 30000); // 30秒後にアラームメッセージを消す
-    }
-}
+//     if (currentTime.hour === alerm_hour && currentTime.minute === alerm_minute) {
+//         $("#alerm_text").text("時間になりました。");
+//         console.log(`現在の時刻が${alerm_hour}時${alerm_minute}分になりました。`);
+//         setTimeout(endAlerm, 30000); // 30秒後にアラームメッセージを消す
+//     }
+// }
 
 // アラームメッセージを非表示にする
 function endAlerm() {
