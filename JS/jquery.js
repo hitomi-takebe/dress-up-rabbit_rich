@@ -1,6 +1,6 @@
 console.log("現在時刻を表示");
 // 現在時刻を表示する関数
-function updateTime() {
+function currentTime() {
     const date = new Date();
     const hours = date.getHours();
     const minutes = date.getMinutes();
@@ -16,12 +16,12 @@ function updateTime() {
 $(function () {
     $("#daytime").datetimepicker();
 });
-
-// $('#mtg_time').datetimepicker({
-//   format: 'YYYY-MM-DD',
-//   language: 'ja'
+// 集合時間のエラーを解消させる
+// $('#daytime').datetimepicker({
+//     format: 'YYYY-MM-DD',
+//     language: 'ja'
 // }).on('dp.error', function(e) {
-//   $(e.target).val('');
+//     $(e.target).val('');
 // });
 
 
@@ -43,27 +43,25 @@ $("#button1").click(function () {
     // 文字列からDateオブジェクトに変換
     const MtgTime_new = new Date(MtgTime);
     // diffの時間を追加
-    const PlusTime = new Date(MtgTime_new.getTime() + diff);
+    const PlusTime = new Date(MtgTime_new.getTime() - diff);
 
     // 時刻をローカルフォーマットで表示（例: "15:00:00"）
     const PlusTimeFormatted = PlusTime.toLocaleTimeString();
 
     // 結果を表示
     $('#start_time').text(PlusTimeFormatted);
-
-    // let pre = time2.getTime() - diff.getTime();
-    console.log(`準備に必要な時間は${mtg_time().hour}時${mtg_time().minute}分になります。`)
-    // console.log(`現在の時刻は${date().hour}時${date().minute}分${date().minute}秒になります。`)
 });
     
 
-    
+// functionを外出しする
+// 出る時間になったことをお知らせ
+const current = currentTime(); 
 
-// if (currentTime.hour === alerm_hour && currentTime.minute === alerm_minute) {
-//     $("#alerm_text").text("時間になりました。");
-//     console.log(`現在の時刻が${alerm_hour}時${alerm_minute}分になりました。`);
-//     setTimeout(endAlerm, 30000); // 30秒後にアラームメッセージを消す
-// }
+if (current.hour === PlusTime.getHours() && current.minutes === PlusTime.getMinutes() ) {
+    $("#alerm_text").text("時間になりました。");
+    console.log(`現在の時刻が${MtgTime_new.hour}時${MtgTime_new.hour}分になりました。`);
+    setTimeout(endAlerm, 30000); // 30秒後にアラームメッセージを消す
+}
 
 // アラームメッセージを非表示にする
 function endAlerm() {
