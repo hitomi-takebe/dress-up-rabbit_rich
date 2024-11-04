@@ -18,8 +18,13 @@ function alerm() {
     console.log(`現在の時刻は${currentTime.hour}時${currentTime.minute}分${currentTime.second}秒になります。`);
 
     // アラームを設定したい時間
-    const alerm_hour = 23; // 時
-    const alerm_minute = 50; // 分
+
+$("#button1").click(function () {
+    const hours2 = $("#text1").val();
+    const minutes2 = $("#text2").val();      // テキストボックスのvalue値を取得
+    $("#span1").text(hours2);
+    $("#span2").text(minutes2);      // spanタグに値を設定
+    });
 
     if (currentTime.hour === alerm_hour && currentTime.minute === alerm_minute) {
         $("#alerm_text").text("時間になりました。");
