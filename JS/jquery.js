@@ -5,7 +5,6 @@ function updateTime() {
     const hours = date.getHours();
     const minutes = date.getMinutes();
     const seconds = date.getSeconds();
-
     // HTMLのid="time"の要素に現在時刻を表示
     $("#time").text(date.toLocaleTimeString());
     // 時間データをオブジェクトとして返す
@@ -35,7 +34,6 @@ $("#button1").click(function () {
     $("#span1").text(MtgTime);
     $("#span2").text(hours2);
     $("#span3").text(minutes2);
-
     console.log("準備・移動の時間をdiffに取得");
     // diffに準備・移動時間の分数を入力
     let diff = hours2 * (60 * 60 * 1000) + minutes2 * (60 * 1000);
@@ -46,6 +44,7 @@ $("#button1").click(function () {
     const preTime = new Date(MtgTime_new.getTime() - diff);
     // 結果を表示
     $("#start_time").text(preTime.toLocaleTimeString());
+
 });
 // 出る時間になったことをお知らせする
 // アラームチェックを1秒ごとに行う
@@ -56,10 +55,8 @@ $(function () {
     if (currentTime.hour === preTime.getHours() && currentTime.minute === PlusTime.getMinutes()) {
         $("#alarm_text").text("時間になりました。");
         console.log(`現在の時刻が${preTime.getHours()}時${preTime.getMinutes()}分になりました。`);
-        
         // 一度だけアラームを発動させるため、setIntervalをクリア
         clearInterval(this);
-
         // 60秒後にアラームメッセージを消す
         setTimeout(endAlarm, 60000);
     }
@@ -72,46 +69,54 @@ function endAlarm() {
     $("#alarm_text").text("");
 }
 
+// カウントダウン表示
+function countDown() {
+
+    $('#alarm_text').html("＼ストレス溜め込みすぎないようにね。／");
+};
+countDown();
+
+
 // 30%と50%のセールチェックを呼び出す
-function sale() {
-    sale30();
-    sale50();
-}
+// function sale() {
+//     sale30();
+//     sale50();
+// }
 
-// 30%セール機能
-function sale30() {
-    const currentTime = updateTime();
-    const sale_hour = 15; // 時
-    const sale_minute = 0; // 分
+// // 30%セール機能
+// function sale30() {
+//     const currentTime = updateTime();
+//     const sale_hour = 15; // 時
+//     const sale_minute = 0; // 分
 
-    if (currentTime.hour === sale_hour && currentTime.minute === sale_minute) {
-        $("#sale_text").text("特売になります！！！！！！！");
-        $("#sale").text("30%引き");
-    }
-}
+//     if (currentTime.hour === sale_hour && currentTime.minute === sale_minute) {
+//         $("#sale_text").text("特売になります！！！！！！！");
+//         $("#sale").text("30%引き");
+//     }
+// }
 
-// 50%セール機能
-function sale50() {
-    const currentTime = updateTime();
-    const sale_hour = 19; // 時
-    const sale_minute = 0; // 分
+// // 50%セール機能
+// function sale50() {
+//     const currentTime = updateTime();
+//     const sale_hour = 19; // 時
+//     const sale_minute = 0; // 分
 
-    if (currentTime.hour === sale_hour && currentTime.minute === sale_minute) {
-        $("#sale_text").text("特売になります！！！！！！！");
-        $("#sale").text("50%引き");
-        setTimeout(endSale, 30000); // 30秒後にセール表示を消す
-    }
-}
+//     if (currentTime.hour === sale_hour && currentTime.minute === sale_minute) {
+//         $("#sale_text").text("特売になります！！！！！！！");
+//         $("#sale").text("50%引き");
+//         setTimeout(endSale, 30000); // 30秒後にセール表示を消す
+//     }
+// }
 
-// セール表示を非表示にする
-function endSale() {
-    console.log("表示が消えます。");
-    $("#sale_text").text("");
-    $("#sale").text("");
-}
+// // セール表示を非表示にする
+// function endSale() {
+//     console.log("表示が消えます。");
+//     $("#sale_text").text("");
+//     $("#sale").text("");
+// }
 
 // 1秒ごとに各機能を実行
 //ここを後で表示させる
 setInterval(updateTime, 1000); // 現在時刻の更新
 // setInterval(alarm, 1000);      // アラームのチェック
-setInterval(sale, 1000);       // セールのチェック
+// setInterval(sale, 1000);       // セールのチェック
