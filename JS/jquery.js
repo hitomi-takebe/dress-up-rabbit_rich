@@ -1,6 +1,6 @@
 console.log("現在時刻を表示");
 // 現在時刻を表示する関数
-function currentTime() {
+function updateTime() {
     const date = new Date();
     const hours = date.getHours();
     const minutes = date.getMinutes();
@@ -30,11 +30,11 @@ $("#button1").click(function () {
     // テキストボックスのvalue値を取得
     const MtgTime = $("#daytime").val();
     const hours2 = $("#pre_hours").val();
-    const minutes2 = $("#pre_mins").val();  
+    const minutes2 = $("#pre_mins").val();
     // spanタグに値を設定
     $("#span1").text(MtgTime);
     $("#span2").text(hours2);
-    $("#span3").text(minutes2);      
+    $("#span3").text(minutes2);
 
     console.log("準備・移動の時間をdiffに取得");
     // diffに準備・移動時間の分数を入力
@@ -43,29 +43,26 @@ $("#button1").click(function () {
     // 文字列からDateオブジェクトに変換
     const MtgTime_new = new Date(MtgTime);
     // diffの時間を追加
-    const PlusTime = new Date(MtgTime_new.getTime() - diff);
+    const preTime = new Date(MtgTime_new.getTime() - diff);
     // 結果を表示
-    $("#start_time").text(PlusTime.toLocaleTimeString());
-// }); 
-
+    $("#start_time").text(preTime.toLocaleTimeString());
+});
 // 出る時間になったことをお知らせする
 // アラームチェックを1秒ごとに行う
-// $(function () {    
-    setInterval(function () {
-        const current = currentTime(); // 現在時刻を取得
-        console.log(current);
-        // 出発時間と現在時刻が一致するか確認
-        if (current.hour === PlusTime.getHours() && current.minute === PlusTime.getMinutes()) {
-            $("#alarm_text").text("時間になりました。");
-            console.log(`現在の時刻が${PlusTime.getHours()}時${PlusTime.getMinutes()}分になりました。`);
-            
-            // 一度だけアラームを発動させるため、setIntervalをクリア
-            clearInterval(this);
+$(function () {    
+    const currentTime = updateTime(); // 現在時刻を取得
+    console.log(currentTime);
+    // 出発時間と現在時刻が一致するか確認
+    if (currentTime.hour === preTime.getHours() && currentTime.minute === PlusTime.getMinutes()) {
+        $("#alarm_text").text("時間になりました。");
+        console.log(`現在の時刻が${preTime.getHours()}時${preTime.getMinutes()}分になりました。`);
+        
+        // 一度だけアラームを発動させるため、setIntervalをクリア
+        clearInterval(this);
 
-            // 1分後にアラームメッセージを消す
-            setTimeout(endAlarm, 60000);
-        }
-    }, 1000);
+        // 60秒後にアラームメッセージを消す
+        setTimeout(endAlarm, 60000);
+    }
 });
 
 
