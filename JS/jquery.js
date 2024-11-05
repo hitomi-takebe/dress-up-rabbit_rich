@@ -44,34 +44,35 @@ $("#button1").click(function () {
     const MtgTime_new = new Date(MtgTime);
     // diffの時間を追加
     const PlusTime = new Date(MtgTime_new.getTime() - diff);
-
-    // 時刻をローカルフォーマットで表示（例: "15:00:00"）
-    const PlusTimeFormatted = PlusTime.toLocaleTimeString();
-
     // 結果を表示
-    $('#start_time').text(PlusTimeFormatted);
+    $("#start_time").text(PlusTime.toLocaleTimeString());
+// }); 
+
+// 出る時間になったことをお知らせする
+// アラームチェックを1秒ごとに行う
+// $(function () {    
+    setInterval(function () {
+        const current = currentTime(); // 現在時刻を取得
+        console.log(current);
+        // 出発時間と現在時刻が一致するか確認
+        if (current.hour === PlusTime.getHours() && current.minute === PlusTime.getMinutes()) {
+            $("#alarm_text").text("時間になりました。");
+            console.log(`現在の時刻が${PlusTime.getHours()}時${PlusTime.getMinutes()}分になりました。`);
+            
+            // 一度だけアラームを発動させるため、setIntervalをクリア
+            clearInterval(this);
+
+            // 1分後にアラームメッセージを消す
+            setTimeout(endAlarm, 60000);
+        }
+    }, 1000);
 });
-    
-    // //この形式に変更できる→HTMLのid="time"の要素に現在時刻を表示
-    //$("#time").text(date.toLocaleTimeString());
-    
-    
 
-// functionを外出しする
-// 出る時間になったことをお知らせ
-////下がdateかも？またはcurrentTimeで作っているhoursのみで良さそう。
-const current = currentTime(); 
 
-if (current.hour === PlusTime.getHours() && current.minutes === PlusTime.getMinutes() ) {
-    $("#alerm_text").text("時間になりました。");
-    console.log(`現在の時刻が${MtgTime_new.hour}時${MtgTime_new.hour}分になりました。`);
-    setTimeout(endAlerm, 30000); // 30秒後にアラームメッセージを消す
-}
-
-// アラームメッセージを非表示にする
-function endAlerm() {
+// アラームメッセージを非表示にする関数
+function endAlarm() {
     console.log("1分経ったので表示が消えます。");
-    $("#alerm_text").text("");
+    $("#alarm_text").text("");
 }
 
 // 30%と50%のセールチェックを呼び出す
@@ -113,7 +114,7 @@ function endSale() {
 }
 
 // 1秒ごとに各機能を実行
-////ここを後で表示させる
+//ここを後で表示させる
 // setInterval(updateTime, 1000); // 現在時刻の更新
-// setInterval(alerm, 1000);      // アラームのチェック
-// setInterval(sale, 1000);       // セールのチェック
+setInterval(alarm, 1000);      // アラームのチェック
+setInterval(sale, 1000);       // セールのチェック
