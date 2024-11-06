@@ -44,7 +44,6 @@ $("#button1").click(function () {
     const preTime = new Date(MtgTime_new.getTime() - diff);
     // 結果を表示
     $("#start_time").text(preTime.toLocaleTimeString());
-});
     // カウントダウン表示
     //     const currentTime = updateTime();
     //     console.log(currentTime);
@@ -54,19 +53,23 @@ $("#button1").click(function () {
     // });
     // 出る時間になったことをお知らせする
     // アラームチェックを1秒ごとに行う
-    $(function () {
-        const currentTime = updateTime(); // 現在時刻を取得
-        console.log(currentTime);
+    // $(function () {
+    const currentTime = updateTime(); // 現在時刻を取得
+    console.log(currentTime);
+    console.log(preTime);
+    console.log(currentTime);
+    console.log(preTime);
         // 出発時間と現在時刻が一致するか確認
-        if (currentTime.hour === preTime.getHours() && currentTime.minute === PlusTime.getMinutes()) {
-            $("#alarm_text").text("出る時間になったよ。");
-            console.log(`現在の時刻が${preTime.getHours()}時${preTime.getMinutes()}分になりました。`);
-            // 一度だけアラームを発動させるため、setIntervalをクリア
-            clearInterval(this);
-            // 60秒後にアラームメッセージを消す
-            setTimeout(endAlarm, 60000);
-        }
-    });
+    if (currentTime.hour === preTime.getHours() && currentTime.minute === preTime.getMinutes()) {
+        $("#alarm_text").text("出る時間になったよ。");
+        console.log(`現在の時刻が${preTime.getHours()}時${preTime.getMinutes()}分になりました。`);
+        // 一度だけアラームを発動させるため、setIntervalをクリア
+        clearInterval(this);
+        // 60秒後にアラームメッセージを消す
+        setTimeout(endAlarm, 60000);
+    }
+    // })
+});
 
 
 
@@ -122,5 +125,5 @@ $("#button1").click(function () {
     //ここを後で表示させる
     setInterval(updateTime, 1000);
  // 現在時刻の更新
-// setInterval(alarm, 1000);      // アラームのチェック
+setInterval(alarm, 1000);      // アラームのチェック
 // setInterval(sale, 1000);       // セールのチェック
