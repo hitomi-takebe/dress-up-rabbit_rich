@@ -45,7 +45,13 @@ $("#button1").click(function () {
     // 結果を表示
     $("#start_time").text(preTime.toLocaleTimeString());
 
-});
+    // カウントダウン表示
+//     const currentTime = updateTime();
+//     console.log(currentTime);
+//     const countDownTime = currentTime - MtgTime_new.getTime();
+//     console.log(countDownTime);
+//     $('#countdown').text(countDownTime.toLocaleTimeString());
+// });
 // 出る時間になったことをお知らせする
 // アラームチェックを1秒ごとに行う
 $(function () {    
@@ -53,7 +59,7 @@ $(function () {
     console.log(currentTime);
     // 出発時間と現在時刻が一致するか確認
     if (currentTime.hour === preTime.getHours() && currentTime.minute === PlusTime.getMinutes()) {
-        $("#alarm_text").text("時間になりました。");
+        $("#alarm_text").text("出る時間になったよ。");
         console.log(`現在の時刻が${preTime.getHours()}時${preTime.getMinutes()}分になりました。`);
         // 一度だけアラームを発動させるため、setIntervalをクリア
         clearInterval(this);
@@ -63,18 +69,14 @@ $(function () {
 });
 
 
+
+
 // アラームメッセージを非表示にする関数
 function endAlarm() {
     console.log("1分経ったので表示が消えます。");
     $("#alarm_text").text("");
 }
 
-// カウントダウン表示
-function countDown() {
-
-    $('#alarm_text').html("＼ストレス溜め込みすぎないようにね。／");
-};
-countDown();
 
 
 // 30%と50%のセールチェックを呼び出す
