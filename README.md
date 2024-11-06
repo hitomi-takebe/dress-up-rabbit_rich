@@ -1,27 +1,40 @@
 
 #   1課題番号-プロダクト名
-うさぎさんと一緒
+出る時間をお知らせするよ。
 
 ##  2課題内容(どんな作品か)
--   うさぎさんを着せ替えできます。
+-   集合時間と準備・移動にかかる時間から準備を開始する時間を算出。
+-   時間になるとお知らせを表示します。
 
 ##  3DEMO
 -   今回はなし
 
 ##  4工夫した点・こだわった点
--   イラストは全て自作して、ピッタリはめ込まれるようにしました。
--   怒っているお兄さんに当たると何故か理不尽に怒られる仕様。
+-   アラーム表示をするところ
+-   カレンダーはdatetimepickerを使って表示
     
 ##  5難しかった点・次回トライしたこと
--   動きをもう少しつけたかった。
-    作った画像をDLできる仕様にしたいです。
+-   アラーム表示の時間の考え方が難しかった。
+-   カウントダウン機能、音声お知らせ機能を追加。
 
 ##  6質問・疑問・感想、シェアしたいこと等なんでも
 （感想）
 -   少ないコードでアプリのように動いて感動です！
 (参考記事)
-html指示出し方法
--   https://pengi-n.co.jp/column/design/jquery-selecter/
-
-条件分岐の指示方法
--   https://stand-4u.com/web/javascript/jquery-if.html
+- アラーム機能
+https://calnikki.com/javascript-alerm-sale/
+- ボタンの入力
+https://itsakura.com/jquery-textbox
+- 入力時の範囲指定
+https://developer.mozilla.org/ja/docs/Web/HTML/Element/input/number
+- 表示タイミングをずらす方法
+https://tool-engineer.work/article73/
+- 時間の差分表示
+    https://gray-code.com/javascript/calculate-the-difference-between-two-dates-and-times/
+- カレンダー表示
+     https://ascii.jp/elem/000/000/883/883101/https://spirits.appirits.com/doruby/8919/
+- デザイン
+    https://colorhunt.co/palette/658864b7b78addddddeeeeee
+    https://saruwakakun.com/html-css/reference/border-length
+- フォント
+    https://www.sejuku.net/blog/71621
