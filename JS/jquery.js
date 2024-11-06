@@ -55,7 +55,7 @@ $("#button1").click(function () {
         console.log(current);
         // 出発時間と現在時刻が一致するか確認
         if (current.hour === PlusTime.getHours() && current.minute === PlusTime.getMinutes()) {
-            $("#alarm_text").text("時間になりました。");
+            $("#alarm_text").text("準備を開始する時間になりました！");
             console.log(`現在の時刻が${PlusTime.getHours()}時${PlusTime.getMinutes()}分になりました。`);
             
             // 一度だけアラームを発動させるため、setIntervalをクリア

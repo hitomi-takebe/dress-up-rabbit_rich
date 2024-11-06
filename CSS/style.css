@@ -15,7 +15,6 @@ body{
     letter-spacing: .1em;
     color: #658864;
     text-shadow:-4px 3px 0 #fff;
-    font-family: 'Sacramento', cursive;
 }
 
 .header p{
@@ -76,6 +75,7 @@ h1:after {
 }
 
 .notice h2 {
-    font-family: 'Sacramento', cursive;
+    margin-top: 1em;
     font-size: 2em;
+    color: #658864;
 }
