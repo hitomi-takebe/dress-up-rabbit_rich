@@ -1,2 +1,81 @@
 @charset "utf-8";
+@import url('https://fonts.googleapis.com/css?family=Sacramento');
 
+body{
+    text-align: center;
+    margin: 0 auto;
+    width: 100%;
+    background: #EEEEEE;
+    line-height:1.3
+}
+
+.header {
+    font-size: 4em;
+    font-style: italic;
+    letter-spacing: .1em;
+    color: #658864;
+    text-shadow:-4px 3px 0 #fff;
+    font-family: 'Sacramento', cursive;
+}
+
+.header p{
+    margin: 30px;
+    margin-bottom: 50px;
+}
+
+h1 {
+    font-size: 1.2em;
+    position: relative;
+    display: inline-block;
+    padding: 0 65px;
+    text-align: center;
+    margin-top: 1em;
+    margin-bottom: 0.7em;
+    color: #658864;
+    font-family:"Kokoro";
+}
+
+h1:before,
+h1:after {
+    position: absolute;
+    top: calc(50% - 3px);
+    width: 50px;
+    height: 6px;
+    content: '';
+    border-top: solid 2px #B7B78A;
+    border-bottom: solid 2px #B7B78A;
+}
+
+h1:before {
+    left: 0;
+}
+
+h1:after {
+    right: 0;
+}
+
+.inputTime{
+    width: 30%;
+    border: dotted 2px;
+    color: #658864;
+    margin: 0 auto;
+    margin-top: 1em;
+    padding: 0.3em;
+}
+
+.inputTime p{
+    text-align: left;
+}
+
+.notice h1 {
+    margin-bottom: 0.2em;
+}
+.notice p{
+    font-size: 0.5em;
+    color: #658864;
+}
+
+.notice h2 {
+    font-family: 'Sacramento', cursive;
+    font-size: 2em;
+}
