@@ -15,11 +15,42 @@ body{
     letter-spacing: .1em;
     color: #658864;
     text-shadow:-4px 3px 0 #fff;
+    width: 50%;
+    margin: 0 auto;
 }
 
 .header p{
     margin: 30px;
     margin-bottom: 50px;
+    position: relative;
+    padding: 1.5rem 2rem;
+    border-bottom: 3px solid #DDDDDD;
+    border-left: 3px solid #DDDDDD;
+    border-radius: 0 0 0 50px;
+}
+
+.header p:before {
+    position: absolute;
+    right: 50px;
+    bottom: -21px;
+    width: 0;
+    height: 0;
+    content: '';
+    border-width: 21px 21px 0 0;
+    border-style: solid;
+    border-color: #DDDDDD transparent transparent transparent;
+}
+
+.header p:after {
+    position: absolute;
+    right: 54px;
+    bottom: -14px;
+    width: 0;
+    height: 0;
+    content: '';
+    border-width: 14px 14px 0 0;
+    border-style: solid;
+    border-color: #EEEEEE transparent transparent transparent;
 }
 
 h1 {
