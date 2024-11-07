@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../課題/うさぎさんを着せ替えよう"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "dress-up-rabbit_rich"
+	}
+}
